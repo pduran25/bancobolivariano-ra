@@ -3,25 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AR Video</title>
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <title>AR.js Image Tracking</title>
+  <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
 </head>
-<body>
-  <a-scene embedded arjs>
-    <!-- Marker -->
-    <a-marker preset="custom" type="pattern" url="assets/marker.patt">
-      <!-- Video -->
-      <a-video 
-        src="assets/video.mp4" 
-        position="0 0.5 0" 
-        rotation="-90 0 0" 
-        width="1" 
-        height="0.5">
+<body style="margin: 0; overflow: hidden;">
+  <!-- Escena de A-Frame -->
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    embedded
+    arjs="sourceType: webcam; trackingMethod: best;">
+    
+    <!-- Detección de la imagen -->
+    <a-nft
+      type="nft"
+      url="./assets/image.jpg"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5">
+      
+      <!-- Video que aparece al detectar la imagen -->
+      <a-video
+        src="./assets/video.mp4"
+        width="1.5"
+        height="1"
+        position="0 0.5 0">
       </a-video>
-    </a-marker>
+      
+    </a-nft>
+    
+    <!-- Cámara AR.js -->
     <a-entity camera></a-entity>
   </a-scene>
 </body>
 </html>
+
