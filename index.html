@@ -9,19 +9,17 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
   <!-- Escena de A-Frame -->
-  <a-scene
-    embedded
-    arjs="sourceType: webcam; trackingMethod: best;">
-    
-    <!-- Detección del marcador de imagen -->
+  <a-scene embedded arjs="sourceType: webcam; trackingMethod: best;">
+
+    <!-- Detección del marcador NFT -->
     <a-nft
       type="nft"
-      url="./assets/image.jpg"
+      url="./assets/image.jpg" <!-- Aquí va la ruta de tu imagen -->
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
       smoothThreshold="5">
-      
+
       <!-- Video que aparece cuando se detecta el marcador -->
       <a-video
         src="./assets/video.mp4"
@@ -31,7 +29,7 @@
         autoplay="true"
         loop="false">
       </a-video>
-      
+
     </a-nft>
     
     <!-- Cámara AR.js -->
@@ -39,4 +37,3 @@
   </a-scene>
 </body>
 </html>
-
